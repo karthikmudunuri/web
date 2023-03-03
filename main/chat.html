@@ -8,29 +8,70 @@
     <link rel="stylesheet" href="chat.css" />
     <script src="response.js" defer></script>
     <script src="app.js" defer></script>
+   
+    <script src="https://kit.fontawesome.com/c6961bbdd7.js" crossorigin="anonymous"></script>
   </head>
   <body>
+   
+
     <div class="container">
       <div class="chat-header">
         <div class="logo">
           <img src="./logo.png" alt="" />
+
+         
         </div>
-        <div class="title">Let's Chat</div>
+        <div class="title"> Chat with us!!
+
+            
+        </div>
+        <div>
+            <ul id="navbarx">
+                <li><a  href="./index.html">Home</a></li>
+                <li><a href="./mobilemain.html">Shop</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+    
+            </ul>
+        </div>
       </div>
       <div class="chat-body">
-        <div class="loading">
-            <div class="circle circle-1"></div>
-            <div class="circle circle-2"></div>
-            <div class="circle circle-3"></div>
-        </div>
+        
       </div>
       <div class="chat-input">
         <div class="input-sec">
-          <input type="text" id="txtInput" placeholder="Typ here" autofocus />
+          <input type="text" id="txtInput" placeholder="Ask us" autofocus />
         </div>
         <div class="send">
           <img src="images/send.svg" alt="send" />
         </div>
+
+        <div>
+            <ul id="navbar">
+
+                <li><button onclick="voice()"><i class="fa-solid fa-microphone"></i></button></li>
+                
+                
+    
+            </ul>
+            <script>
+                function voice(){
+                    var recognition= new webkitSpeechRecognition();
+                    recognition.lang = "en-GB";
+                    recognition.onresult = function(event){
+                        console.log(event);
+                        document.getElementById("txtInput").value = event.results[1][0].transcript;
+                    }
+                    recognition.start();
+                }
+        
+            </script>
+        </div>
+
+       
+  
+    
       </div>
     </div>
   </body>
